@@ -12,7 +12,7 @@ import java.util.List;
 public class MatriculaServiceImpl implements IMatriculaService {
 
     @Autowired
-    private MatriculaRepository service;
+    private MatriculaRepository repository;
     @Override
     public Matricula create(MatriculaForm form) {
         return null;
@@ -27,9 +27,9 @@ public class MatriculaServiceImpl implements IMatriculaService {
     public List<Matricula> getAll(String bairro) {
 
         if(bairro == null){
-            return service.findAll();
+            return repository.findAll();
         }else{
-            return service.findAlunosMatriculadosBairro(bairro);
+            return repository.findByAlunoBairro(bairro);
         }
 
     }
